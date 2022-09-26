@@ -12,3 +12,4 @@ class Doenca(db.Model):
             "nome": self.nome,
             "sintomas": self.sintomas
         }
+        

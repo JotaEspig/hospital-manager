@@ -1,11 +1,19 @@
 from config.config import *
-#from rotas.listar import *
-#from rotas.retornar import *
-#from rotas.atualizar import *
-#from rotas.login import *
+from modelos.admin import Admin
+from modelos.doenca import Doenca
+from modelos.exame import Exame
+from modelos.hospital import Hospital
+from modelos.paciente import Paciente
+from modelos.remedio import Remedio
 
 @app.route("/")
 def inicio():
     return 'backend operante, operação de editar'
 
+@app.route("/create_tables")
+def create_tables():
+    db.create_all()
+    return ""
+
+db.create_all()
 app.run(debug=True)
