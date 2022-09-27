@@ -9,3 +9,7 @@ def test_exame():
 
     e1 = Exame.query.filter_by(nome="TesteDeExame").first()
     assert e1.nome == "TesteDeExame"
+
+    db.session.delete(e1)
+    db.session.commit()
+    
