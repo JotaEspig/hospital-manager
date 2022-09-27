@@ -1,5 +1,5 @@
 from config.config import db
-from modelos.doenca import Doenca
+from models.doenca import Doenca
 
 
 def test_doenca():

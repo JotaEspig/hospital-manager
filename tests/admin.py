@@ -1,5 +1,5 @@
 from config.config import db, bcrypt
-from modelos.admin import Admin
+from models.admin import Admin
 
 
 def test_admin():

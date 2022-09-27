@@ -1,12 +1,12 @@
 from typing import Tuple
 
 from config.config import db, app
-from modelos.admin import Admin
-from modelos.doenca import Doenca
-from modelos.exame import Exame
-from modelos.hospital import Hospital
-from modelos.paciente import Paciente
-from modelos.remedio import Remedio
+from models.admin import Admin
+from models.doenca import Doenca
+from models.exame import Exame
+from models.hospital import Hospital
+from models.paciente import Paciente
+from models.remedio import Remedio
 
 
 @app.route("/")

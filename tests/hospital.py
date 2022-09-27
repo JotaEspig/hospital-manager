@@ -1,5 +1,5 @@
 from config.config import db
-from modelos.hospital import Hospital
+from models.hospital import Hospital
 
 
 def test_hospital():

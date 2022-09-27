@@ -1,10 +1,10 @@
 from config.config import db
-from testes import admin
-from testes import doenca
-from testes import exame
-from testes import hospital
-from testes import paciente
-from testes import remedio
+from tests import admin
+from tests import doenca
+from tests import exame
+from tests import hospital
+from tests import paciente
+from tests import remedio
 
 
 def main() -> None:

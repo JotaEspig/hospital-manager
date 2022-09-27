@@ -1,5 +1,5 @@
 from config.config import db
-from modelos.remedio import Remedio
+from models.remedio import Remedio
 
 
 def test_remedio():

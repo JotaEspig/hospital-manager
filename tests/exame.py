@@ -1,5 +1,5 @@
 from config.config import *
-from modelos.exame import Exame
+from models.exame import Exame
 
 
 def test_exame():

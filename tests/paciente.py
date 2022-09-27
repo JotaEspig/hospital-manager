@@ -1,5 +1,5 @@
 from config.config import *
-from modelos.paciente import Paciente
+from models.paciente import Paciente
 
 
 def test_paciente():
