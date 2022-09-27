@@ -8,7 +8,7 @@ from modelos.remedio import Remedio
 
 @app.route("/")
 def inicio():
-    return 'backend operante, operação de editar'
+    return 'backend operante'
 
 @app.route("/create_tables")
 def create_tables():
