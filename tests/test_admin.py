@@ -13,8 +13,8 @@ class TestAdmin(unittest.TestCase):
         db.session.commit()
 
         a1 = Admin.query.filter_by(username="TesteDeAdmin").first()
-        assert a1.username == "TesteDeAdmin"
-        assert bcrypt.check_password_hash(a1.pwhash, "senha")
+        self.assertEqual(a1.username, "TesteDeAdmin")
+        self.assertEqual(bcrypt.check_password_hash(a1.pwhash, "senha"), True)
 
         db.session.delete(a1)
         db.session.commit()
