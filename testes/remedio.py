@@ -1,13 +1,11 @@
-from config.config import *
+from config.config import db
 from modelos.remedio import Remedio
 
 
-def testRemedio():
-    r = Remedio(nome="TesteDeRemedio", descricao="N sei")
-    db.session.add(r)
+def test_remedio():
+    r1 = Remedio(nome="TesteDeRemedio", descricao="N sei")
+    db.session.add(r1)
     db.session.commit()
 
-    r = db.session.query(Remedio).filter_by(nome="TesteDeRemedio").first()
-    if r.nome != "TesteDeRemedio":
-        print("erro")
-
+    r1 = Remedio.query.filter_by(nome="TesteDeRemedio").first()
+    assert r1.nome == "TesteDeRemedio"

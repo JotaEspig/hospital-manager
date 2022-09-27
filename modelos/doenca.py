@@ -1,4 +1,4 @@
-from config.config import *
+from config.config import db
 
 class Doenca(db.Model):
     id = db.Column(db.Integer, primary_key=True)

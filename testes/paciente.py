@@ -2,12 +2,11 @@ from config.config import *
 from modelos.paciente import Paciente
 
 
-def testPaciente():
-    r = Paciente(nome="TesteDePaciente", ="N sei")
-    db.session.add(r)
+def test_paciente():
+    p1 = Paciente(nome="TesteDePaciente", cpf="000.000.000-00", email="a@g.com", telefone="KKKK")
+    db.session.add(p1)
     db.session.commit()
 
-    r = db.session.query(Paciente).filter_by(nome="TesteDePaciente").first()
-    if r.nome != "TesteDePaciente":
-        print("erro")
-
+    p1 = Paciente.query.filter_by(nome="TesteDePaciente").first()
+    assert p1.nome == "TesteDePaciente"
+    assert p1.cpf == "000.000.000-00"

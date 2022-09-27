@@ -1,4 +1,4 @@
-from config.config import *
+from config.config import db
 
 
 class Admin(db.Model):

@@ -1,3 +1,4 @@
+from config.config import db
 from testes import admin
 from testes import doenca
 from testes import exame
@@ -6,9 +7,21 @@ from testes import paciente
 from testes import remedio
 
 
-admin.testAdmin()
-doenca.testDoenca()
-exame.testExame()
-hospital.testHospital()
-paciente.testPaciente()
-remedio.testRemedio()
+def main() -> None:
+    print("== Teste de Admin ==")
+    admin.test_admin()
+    print("\n== Teste de Doença ==")
+    doenca.test_doenca()
+    print("\n== Teste de Exame ==")
+    exame.test_exame()
+    print("\n== Teste de Hospital ==")
+    hospital.test_hospital()
+    print("\n== Teste de Paciente ==")
+    paciente.test_paciente()
+    print("\n== Teste da Remédio ==")
+    remedio.test_remedio()
+    
+
+if __name__ == "__main__":
+    db.create_all()
+    main()
