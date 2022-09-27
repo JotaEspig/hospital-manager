@@ -11,6 +11,7 @@ from modelos.remedio import Remedio
 def inicio():
     return 'backend operante', 200
 
+
 @app.route("/create_tables")
 def create_tables():
     db.create_all()
