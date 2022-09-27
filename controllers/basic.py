@@ -1,3 +1,5 @@
+from typing import Tuple
+
 from config.config import db, app
 from modelos.admin import Admin
 from modelos.doenca import Doenca
@@ -8,11 +10,11 @@ from modelos.remedio import Remedio
 
 
 @app.route("/")
-def inicio():
+def inicio() -> Tuple[str, int]:
     return 'backend operante', 200
 
 
 @app.route("/create_tables")
-def create_tables():
+def create_tables() -> Tuple[str, int]:
     db.create_all()
     return "", 200
