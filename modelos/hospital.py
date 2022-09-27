@@ -1,3 +1,5 @@
+from typing import Dict
+
 from config.config import db
 
 class Hospital(db.Model):
@@ -7,7 +9,7 @@ class Hospital(db.Model):
     localizacao = db.Column(db.String(254), nullable=False)
     
     # expressao da classe no formato json
-    def json(self):
+    def json(self) -> Dict:
         return {
             "id": self.id,
             "nome": self.nome,

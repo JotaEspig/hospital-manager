@@ -1,5 +1,8 @@
-from config.config import db
+from typing import Dict
+
 from sqlalchemy.ext.hybrid import hybrid_property
+
+from config.config import db
 
 
 class Paciente(db.Model):
@@ -14,14 +17,14 @@ class Paciente(db.Model):
         return self._email
 
     @email.setter
-    def email(self, value: str):
+    def email(self, value: str) -> None:
         if "@" not in value:
             raise Exception("precisa conter @")
 
         self._email = value
     
     # expressao da classe no formato json
-    def json(self):
+    def json(self) -> Dict:
         return {
             "id": self.id,
             "nome": self.nome,

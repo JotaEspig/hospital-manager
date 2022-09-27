@@ -1,3 +1,5 @@
+from typing import Dict
+
 from config.config import db
 
 
@@ -7,7 +9,7 @@ class Admin(db.Model):
     pwhash = db.Column(db.Text, nullable=False)
 
     # expressao da classe no formato json
-    def json(self):
+    def json(self) -> Dict:
         return {
             "id": self.id,
             "username": self.username

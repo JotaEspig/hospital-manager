@@ -1,3 +1,5 @@
+from typing import Dict
+
 from config.config import db
 
 class Remedio(db.Model):
@@ -6,7 +8,7 @@ class Remedio(db.Model):
     descricao = db.Column(db.String(254), nullable=False)
     
     # expressao da classe no formato json
-    def json(self):
+    def json(self) -> Dict:
         return {
             "id": self.id,
             "nome": self.nome,

@@ -1,3 +1,5 @@
+from typing import Dict
+
 from config.config import db
 from modelos.hospital import Hospital
 from modelos.remedio import Remedio
@@ -26,7 +28,7 @@ class Exame(db.Model):
     #imagem = 
     
     # expressao da classe no formato json
-    def json(self):
+    def json(self) -> Dict:
         return {
             "id": self.id,
             "nome": self.nome,
