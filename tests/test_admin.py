@@ -6,15 +6,14 @@ from models.admin import Admin
 
 class TestAdmin(unittest.TestCase):
     def test_admin(self):
-        hash_de_teste = bcrypt.generate_password_hash("senha") \
-                        .decode('utf-8', 'ignore')
-        a1 = Admin(username="TesteDeAdmin", pwhash=hash_de_teste)
+        a1 = Admin(username="TesteDeAdmin", pwhash="senha")
         db.session.add(a1)
         db.session.commit()
 
         a1 = Admin.query.filter_by(username="TesteDeAdmin").first()
         self.assertEqual(a1.username, "TesteDeAdmin")
-        self.assertEqual(bcrypt.check_password_hash(a1.pwhash, "senha"), True)
+        self.assertEqual(a1.validate_password("senha"), True)
+        self.assertEqual(a1.validate_password("senha1"), False)
 
         db.session.delete(a1)
         db.session.commit()
