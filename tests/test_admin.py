@@ -1,6 +1,6 @@
 import unittest
 
-from config.config import db, bcrypt
+from config.config import db
 from models.admin import Admin
 
 
