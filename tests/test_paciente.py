@@ -6,7 +6,8 @@ from models.paciente import Paciente
 
 class TestPaciente(unittest.TestCase):
     def test_paciente(self):
-        p1 = Paciente(nome="TesteDePaciente", cpf="000.000.000-00", email="a@g.com", telefone="KKKK")
+        p1 = Paciente(nome="TesteDePaciente", cpf="000.000.000-00",
+            email="a@g.com", telefone="KKKK")
         db.session.add(p1)
         db.session.commit()
 

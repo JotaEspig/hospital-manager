@@ -4,7 +4,7 @@ from config.config import db
 from models.remedio import Remedio
 
 
-class Remedio(unittest.TestCase):
+class TestRemedio(unittest.TestCase):
     def test_remedio(self):
         r1 = Remedio(nome="TesteDeRemedio", descricao="N sei")
         db.session.add(r1)
