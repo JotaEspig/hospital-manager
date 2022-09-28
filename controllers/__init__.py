@@ -1,1 +1,1 @@
-from controllers import basic
+from controllers import basic, exame
