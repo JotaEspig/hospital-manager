@@ -2,7 +2,7 @@ from typing import Dict
 
 from config.config import db
 from models.hospital import Hospital
-from models.remedio import Remedio
+from models.medico import Medico
 from models.doenca import Doenca
 from models.paciente import Paciente
 
@@ -14,16 +14,16 @@ class Exame(db.Model):
     resultado = db.Column(db.Boolean)
     hash = db.Column(db.Text, nullable=True)
 
-    hospital_id = db.Column(db.Integer, db.ForeignKey(Hospital.id))
+    hospital_id = db.Column(db.Integer, db.ForeignKey(Hospital.id), nullable=False)
     hospital = db.relationship("Hospital")
 
     doenca_id = db.Column(db.Integer, db.ForeignKey(Doenca.id))
     doenca = db.relationship("Doenca")
 
-    remedio_id = db.Column(db.Integer, db.ForeignKey(Remedio.id))
-    remedio = db.relationship("Remedio")
+    medico_id = db.Column(db.Integer, db.ForeignKey(Medico.id), nullable=False)
+    medico = db.relationship("Medico")
 
-    paciente_id = db.Column(db.Integer, db.ForeignKey(Paciente.id))
+    paciente_id = db.Column(db.Integer, db.ForeignKey(Paciente.id), nullable=False)
     paciente = db.relationship("Paciente")
     photo_filename = db.Column(db.Text)
     
@@ -36,8 +36,12 @@ class Exame(db.Model):
             "resultado": self.resultado,
             "hash": self.hash,
             "hospital": self.hospital,
+            "hospital_id": self.hospital_id,
             "doenca": self.doenca,
-            "remedio": self.remedio,
+            "doenca_id": self.doenca_id,
+            "medico": self.medico,
+            "medico_id": self.medico_id,
             "paciente": self.paciente,
+            "paciente": self.paciente_id,
             "photo_filename": self.photo_filename
         }
