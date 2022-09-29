@@ -1,5 +1,5 @@
 from config.config import app, db
-import controllers
+import controllers # Gets the routes
 
 
 if __name__ == "__main__":
