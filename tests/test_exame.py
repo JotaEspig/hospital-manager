@@ -21,7 +21,8 @@ class TestExame(unittest.TestCase):
         db.session.add(r1)
         db.session.commit()
         e1 = Exame(nome="TesteDeExame", descricao="N sei", resultado=True,
-            doenca=d1, hospital=h1, paciente=p1, remedio=r1)
+            doenca=d1, hospital=h1, paciente=p1, remedio=r1, 
+            photo_filename="a.jpg")
         db.session.add(e1)
         db.session.commit()
 

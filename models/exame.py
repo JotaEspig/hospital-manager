@@ -25,7 +25,7 @@ class Exame(db.Model):
 
     paciente_id = db.Column(db.Integer, db.ForeignKey(Paciente.id))
     paciente = db.relationship("Paciente")
-    #imagem = 
+    photo_filename = db.Column(db.Text)
     
     # expressao da classe no formato json
     def json(self) -> Dict:
@@ -38,5 +38,6 @@ class Exame(db.Model):
             "hospital": self.hospital,
             "doenca": self.doenca,
             "remedio": self.remedio,
-            "paciente": self.paciente
+            "paciente": self.paciente,
+            "photo_filename": self.photo_filename
         }
