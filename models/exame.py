@@ -25,6 +25,7 @@ class Exame(db.Model):
 
     paciente_id = db.Column(db.Integer, db.ForeignKey(Paciente.id), nullable=False)
     paciente = db.relationship("Paciente")
+    
     photo_filename = db.Column(db.Text)
     
     # expressao da classe no formato json
