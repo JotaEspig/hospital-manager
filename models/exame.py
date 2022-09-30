@@ -10,9 +10,9 @@ from models.paciente import Paciente
 class Exame(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(254), nullable=False)
-    descricao = db.Column(db.Text, nullable=True)
+    descricao = db.Column(db.Text, nullable=False)
     resultado = db.Column(db.Boolean)
-    hash = db.Column(db.Text, nullable=True)
+    hash = db.Column(db.Text, nullable=False)
 
     hospital_id = db.Column(db.Integer, db.ForeignKey(Hospital.id), nullable=False)
     hospital = db.relationship("Hospital")
@@ -25,7 +25,7 @@ class Exame(db.Model):
 
     paciente_id = db.Column(db.Integer, db.ForeignKey(Paciente.id), nullable=False)
     paciente = db.relationship("Paciente")
-    
+
     photo_filename = db.Column(db.Text)
     
     # expressao da classe no formato json

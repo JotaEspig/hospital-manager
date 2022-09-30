@@ -19,7 +19,6 @@ class TestExame(unittest.TestCase):
         db.session.commit()
         e1 = Exame(nome="TesteDeExame", descricao="N sei", resultado=True, 
             hospital=h1, paciente=p1, medico=r1, photo_filename="a.jpg")
-        print(e1.json())
         db.session.add(e1)
         db.session.commit()
 
