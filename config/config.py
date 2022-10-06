@@ -4,6 +4,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_cors import CORS # permitir back receber json do front
+from flask_login import LoginManager
 
 # configurações
 app = Flask(__name__)
@@ -17,3 +18,5 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///"+arquivobd
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # remover warnings
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
+login_manager = LoginManager(app)
+app.secret_key = "secret"
