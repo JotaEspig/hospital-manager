@@ -6,7 +6,7 @@ from models.doenca import Doenca
 from models.exame import Exame
 from models.hospital import Hospital
 from models.paciente import Paciente
-from models.remedio import Remedio
+from models.medico import Medico
 
 
 @app.route("/")
