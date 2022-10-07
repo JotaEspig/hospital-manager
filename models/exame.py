@@ -30,7 +30,8 @@ class Exame(db.Model):
     photo_filename = db.Column(db.Text)
 
     def generate_hash(self) -> None:
-        self.hash = md5((str(self.id)).encode())
+        id_str = str(self.id).encode()
+        self.hash = md5(id_str).hexdigest()
     
     # expressao da classe no formato json
     def json(self) -> Dict:
