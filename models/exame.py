@@ -1,4 +1,5 @@
 from typing import Dict
+from hashlib import md5
 
 from config.config import db
 from models.hospital import Hospital
@@ -12,7 +13,7 @@ class Exame(db.Model):
     nome = db.Column(db.String(254), nullable=False)
     descricao = db.Column(db.Text, nullable=False)
     resultado = db.Column(db.Boolean)
-    hash = db.Column(db.Text, nullable=False)
+    hash = db.Column(db.Text)
 
     hospital_id = db.Column(db.Integer, db.ForeignKey(Hospital.id), nullable=False)
     hospital = db.relationship("Hospital")
@@ -27,6 +28,9 @@ class Exame(db.Model):
     paciente = db.relationship("Paciente")
 
     photo_filename = db.Column(db.Text)
+
+    def generate_hash(self) -> None:
+        self.hash = md5((str(self.id)).encode())
     
     # expressao da classe no formato json
     def json(self) -> Dict:
