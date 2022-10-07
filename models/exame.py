@@ -41,13 +41,13 @@ class Exame(db.Model):
             "descricao": self.descricao,
             "resultado": self.resultado,
             "hash": self.hash,
-            "hospital": self.hospital,
+            "hospital": self.hospital.json(),
             "hospital_id": self.hospital_id,
-            "doenca": self.doenca,
+            "doenca": self.doenca.json() if self.doenca is not None else None,
             "doenca_id": self.doenca_id,
-            "medico": self.medico,
+            "medico": self.medico.json(),
             "medico_id": self.medico_id,
-            "paciente": self.paciente,
+            "paciente": self.paciente.json(),
             "paciente": self.paciente_id,
             "photo_filename": self.photo_filename
         }

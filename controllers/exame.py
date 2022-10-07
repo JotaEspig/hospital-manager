@@ -14,7 +14,7 @@ def get_exame() -> Tuple[Response, int]:
         return jsonify(None), 400
 
     exame = Exame.query.filter_by(hash=exame_hash).first()
-    return jsonify(exame), 200 if exame is not None else 404
+    return jsonify(exame.json()), 200 if exame is not None else 404
 
 
 @app.route("/exame/get_image")
