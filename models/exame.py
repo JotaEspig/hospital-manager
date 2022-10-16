@@ -51,3 +51,11 @@ class Exame(db.Model):
             "paciente": self.paciente_id,
             "photo_filename": self.photo_filename
         }
+
+
+def is_exame_data_valid(data: Dict[str, str]) -> bool:
+    for key in data.keys():
+        if key not in Exame.__dict__.keys():
+            return False
+
+    return True
