@@ -4,8 +4,9 @@ from http.client import OK, BAD_REQUEST, NOT_FOUND
 
 from flask import Response, request, jsonify, send_file
 
-from config.config import app, root_path
-from models.exame import Exame
+from config.config import app, db, root_path
+from models.exame import Exame, is_exame_data_valid
+from controllers.utils import is_logged
 
 
 @app.route("/exame/get")
@@ -31,3 +32,16 @@ def get_exame_image() -> Tuple[Response, int]:
     
     photo_path = os.path.join(root_path, "images/"+e1.photo_filename)
     return send_file(photo_path), OK
+
+
+@app.route("/exame/add", methods=["POST"])
+@is_logged
+def add_exame() -> Tuple[Response, int]:
+    data = dict(request.form)
+    if not is_exame_data_valid:
+        return "", BAD_REQUEST
+
+    e = Exame(**data)
+    db.session.add(e)
+    db.session.commit()
+    return "", OK
