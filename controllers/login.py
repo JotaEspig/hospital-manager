@@ -1,3 +1,5 @@
+from http.client import OK, BAD_REQUEST, UNAUTHORIZED, NOT_FOUND
+
 from flask import abort, request
 from flask_login import current_user, login_user, logout_user
 
@@ -9,18 +11,18 @@ from models.admin import Admin
 def login():
     dados = request.get_json()
     if "username" not in dados or "password" not in dados:
-        abort(400) # BadRequest
+        abort(BAD_REQUEST)
     
     a = Admin.query.filter_by(username=dados["username"]).first()
     if a is None:
-        abort(404)
+        abort(NOT_FOUND)
 
-    isValid = a.validate_password(dados["password"])
-    if not isValid:
-        abort(403)
+    is_valid = a.validate_password(dados["password"])
+    if not is_valid:
+        abort(UNAUTHORIZED)
 
     if current_user.is_authenticated:
         logout_user(a)
     login_user(a)
 
-    return "", 200
+    return "", OK
