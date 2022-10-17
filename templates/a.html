@@ -14,7 +14,6 @@
         $.ajax({
             method: "POST",
             url: "/login",
-            dataType: "json",
             contentType: "application/json",
             data: JSON.stringify({"username": "admin", "password": "admin"}),
             success: function() {

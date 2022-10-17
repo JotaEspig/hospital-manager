@@ -22,7 +22,7 @@ def login():
         abort(UNAUTHORIZED)
 
     if current_user.is_authenticated:
-        logout_user(a)
+        logout_user()
     login_user(a)
 
     return "", OK
