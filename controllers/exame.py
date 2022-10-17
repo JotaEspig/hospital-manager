@@ -34,8 +34,8 @@ def get_exame_image() -> Tuple[Response, int]:
     return send_file(photo_path), OK
 
 
-@app.route("/exame/add", methods=["POST"])
 @is_logged
+@app.route("/exame/add", methods=["POST"])
 def add_exame() -> Tuple[Response, int]:
     data = dict(request.form)
     if not is_exame_data_valid:
