@@ -1,0 +1,21 @@
+body{
+	background-image: url("https://emc.acidadeon.com/dbimagens/virus_covid_1200x675_01042022104307.jpg?__scale=c:transparent,w:480,h:270,t:3");
+}
+
+#centralizar{
+
+    height: 100%;
+    margin: 0 auto;
+    margin-top: 0%;
+       
+    padding-left: 50px !important;
+    padding-right: 60px !important;
+    padding-bottom: 30px;
+    padding-top: 0px;
+    width: 80%;
+    background-color: #ebedf0;
+}
+
+h1 {
+	text-align: center;
+}
