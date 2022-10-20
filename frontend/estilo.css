@@ -1,5 +1,6 @@
 body{
 	background-image: url("https://emc.acidadeon.com/dbimagens/virus_covid_1200x675_01042022104307.jpg?__scale=c:transparent,w:480,h:270,t:3");
+    padding: 1%;
 }
 
 #centralizar{
@@ -14,8 +15,29 @@ body{
     padding-top: 0px;
     width: 80%;
     background-color: #ebedf0;
+
 }
 
 h1 {
 	text-align: center;
+}
+
+.caixa{
+    border: solid;
+    border-color: lightgray;
+    border-width: 1px;
+    padding-top: 15%;
+    padding-bottom: 15%;
+    padding-right: 20%;
+    padding-left: 20%;
+    background-color: #a9b4c4;
+}
+
+.conteudo{
+    text-align: center;
+    justify-content: center;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 10%;
+
 }
