@@ -20,4 +20,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # remover warnings
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
-app.secret_key = "secret"
+app.secret_key = os.getenv("SECRET_KEY")
+if app.secret_key is None or app.secret_key.strip() == "":
+    raise Exception("secret key cannot be empty. To set a secret key, use: " \
+        "'export SECRET_KEY=<your-secret-key>'")
