@@ -1,6 +1,6 @@
 from typing import Tuple
 import os
-from http.client import OK, BAD_REQUEST, NOT_FOUND
+from http.client import OK, BAD_REQUEST, NOT_FOUND, INTERNAL_SERVER_ERROR
 
 from flask import Response, request, jsonify, send_file
 
@@ -43,5 +43,30 @@ def add_exame() -> Tuple[Response, int]:
 
     e = Exame(**data)
     db.session.add(e)
+    e.generate_hash()
+    db.session.commit()
+    return e.hash, OK
+
+@is_logged
+@app.route("/exame/save_image", methods=["PUT"])
+def save_image():
+    try:
+        file_val = request.files["foto"]
+        filename = file_val.filename
+        filepath = os.path.join(root_path, 'images/'+filename)
+        file_val.save(filepath)
+        return "", OK
+    except:
+        return "", INTERNAL_SERVER_ERROR
+
+@is_logged
+@app.route("/exame/associate_image", methods=["PUT"])
+def associate_image():
+    data = dict(request.form)
+    e = Exame.query.filter_by(hash=data["hash"]).first()
+    if e is None:
+        return "", NOT_FOUND
+
+    e.photo_filename = data["filename"]
     db.session.commit()
     return "", OK
