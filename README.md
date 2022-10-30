@@ -9,8 +9,7 @@ python3 -m unittest discover -v ./tests -p test_*.py
 
 ## Documentação da API
 ### /
-
-retorna "backend operante" e 200
+Retorna "backend operante" e 200
 
 ### /create_tables
 cria as tabelas no banco de dados.
@@ -20,20 +19,76 @@ Retorna 200
 Pega o exame por meio do parâmetro "hash" na ULR. Exemplo: http://localhost:5000/exame/get?hash=hash_do_exame
 Retorna:
 - 200 e JSON com o exame
-- 400 (má formação da requisição)
-- 404 exame não encontrado
+- 400
+- 404
 
 ### /exame/get_image
 Pega a imagem do exame (caso não exista retorna 404) por meio do parâmetro "hash" na ULR. Exemplo: http://localhost:5000/exame/get_image?hash=hash_do_exame
 Retorna:
-- 200 e JSON com a imagem do exame
-- 404 exame ou imagem não encontrada
+- 200 e a imagem do exame
+- 404
 
 ### /exame/add
-TODO
+Adiciona um exame no banco de dados.
+
+Recebe (x-www-form-urlencoded):
+ - id
+ - nome
+ - descricao
+ - resultado
+ - paciente_id
+ - medico_id
+ - doenca_id
+ - hospital_id
+
+Retorna:
+ - 200 e o hash do exame
+ - 400
+
+### /exame/save_image
+Salva uma imagem relacionada com exames no banco de dados
+
+Recebe:
+ - Arquivo
+
+Retorna:
+ - 200
+ - 500
+
+### /exame/associate_image
+Associa uma imagem salva com uma exame
+
+Recebe (x-www-form-urlencoded):
+ - hash
+ - filename
+
+Retorna:
+ - 200
+ - 404
 
 ### /frontend/\<path_to_file\>
-TODO
+Abre arquivos presentes na pasta frontend
 
 ### /login
-TODO
+Faz o login
+
+Recebe (x-www-form-urlencoded):
+ - username
+ - password
+
+Retorna:
+ - 200
+ - 400
+ - 401
+
+### /signup
+Faz o cadastro
+
+Recebe (x-www-form-urlencoded):
+ - username
+ - password
+
+Retorna:
+ - 200
+ - 400
+ - 409
