@@ -15,6 +15,33 @@ Retorna "backend operante" e 200
 cria as tabelas no banco de dados.
 Retorna 200
 
+### /frontend/\<path_to_file\>
+Abre arquivos presentes na pasta frontend
+
+### /login
+Faz o login
+
+Recebe (x-www-form-urlencoded):
+ - username
+ - password
+
+Retorna:
+ - 200
+ - 400
+ - 401
+
+### /signup
+Faz o cadastro
+
+Recebe (x-www-form-urlencoded):
+ - username
+ - password
+
+Retorna:
+ - 200
+ - 400
+ - 409
+
 ### /exame/get
 Pega o exame por meio do parâmetro "hash" na ULR. Exemplo: http://localhost:5000/exame/get?hash=hash_do_exame
 Retorna:
@@ -66,29 +93,54 @@ Retorna:
  - 200
  - 404
 
-### /frontend/\<path_to_file\>
-Abre arquivos presentes na pasta frontend
-
-### /login
-Faz o login
-
-Recebe (x-www-form-urlencoded):
- - username
- - password
+### /doenca/get
+Pega uma doença de acordo com o id por meio do parâmetro "id" na ULR. Exemplo: http://localhost:5000/doenca/get?id=id_de_doenca
 
 Retorna:
- - 200
- - 400
- - 401
+- 200 e JSON da doença
+- 404
 
-### /signup
-Faz o cadastro
-
-Recebe (x-www-form-urlencoded):
- - username
- - password
+### /doenca/get_all
+Pega todos os doenças do banco de dados
 
 Retorna:
- - 200
- - 400
- - 409
+ - 200 e JSON dos doenças
+
+### /hospital/get
+Pega um hospital de acordo com o id por meio do parâmetro "id" na ULR. Exemplo: http://localhost:5000/hospital/get?id=id_de_hospital
+
+Retorna:
+- 200 e JSON da hospital
+- 404
+
+### /hospital/get_all
+Pega todos os hospitals do banco de dados
+
+Retorna:
+ - 200 e JSON dos hospitals
+
+### /medico/get
+Pega um medico de acordo com o id por meio do parâmetro "id" na ULR. Exemplo: http://localhost:5000/medico/get?id=id_de_medico
+
+Retorna:
+- 200 e JSON da medico
+- 404
+
+### /medico/get_all
+Pega todos os medicos do banco de dados
+
+Retorna:
+ - 200 e JSON dos medicos
+
+### /paciente/get
+Pega um paciente de acordo com o id por meio do parâmetro "id" na ULR. Exemplo: http://localhost:5000/paciente/get?id=id_de_paciente
+
+Retorna:
+- 200 e JSON da paciente
+- 404
+
+### /paciente/get_all
+Pega todos os pacientes do banco de dados
+
+Retorna:
+ - 200 e JSON dos pacientes
