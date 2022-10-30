@@ -25,10 +25,10 @@ def get_exame_image() -> Tuple[Response, int]:
     e1 = Exame.query.filter_by(hash=exame_hash). \
         with_entities(Exame.id, Exame.photo_filename).first()
     if e1 is None:
-        return jsonify(None), NOT_FOUND
+        return "", NOT_FOUND
 
     if e1.photo_filename == "":
-        return jsonify(None), NOT_FOUND
+        return "", NOT_FOUND
     
     photo_path = os.path.join(root_path, "images/"+e1.photo_filename)
     return send_file(photo_path), OK

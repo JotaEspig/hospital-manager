@@ -15,7 +15,7 @@ def login():
     
     a = Admin.query.filter_by(username=dados["username"]).first()
     if a is None:
-        abort(NOT_FOUND)
+        abort(UNAUTHORIZED)
 
     is_valid = a.validate_password(dados["password"])
     if not is_valid:
