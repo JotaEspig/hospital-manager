@@ -2,10 +2,22 @@ from http.client import OK, BAD_REQUEST, NOT_FOUND
 
 from flask import request, jsonify
 
-from config.config import app
+from config.config import app, db
 from models.doenca import Doenca
 from controllers.utils import is_logged
 
+
+@is_logged
+@app.route("/doenca/add", methods=["POST"])
+def add_doenca():
+    data = dict(request.form)
+    if not Doenca.is_data_valid(data):
+        return "", BAD_REQUEST
+
+    d = Doenca(**data)
+    db.session.add(d)
+    db.session.commit()
+    return str(d.id), OK
 
 @is_logged
 @app.route("/doenca/get_all")
