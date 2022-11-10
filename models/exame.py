@@ -53,9 +53,10 @@ class Exame(db.Model):
         }
 
 
-def is_exame_data_valid(data: Dict[str, str]) -> bool:
-    for key in data.keys():
-        if key not in Exame.__dict__.keys():
-            return False
+    @classmethod
+    def is_data_valid(cls, data: Dict[str, str]) -> bool:
+        for key in data.keys():
+            if key not in cls.__dict__.keys():
+                return False
 
-    return True
+        return True

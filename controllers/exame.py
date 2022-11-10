@@ -5,40 +5,15 @@ from http.client import OK, BAD_REQUEST, NOT_FOUND, INTERNAL_SERVER_ERROR
 from flask import Response, request, jsonify, send_file
 
 from config.config import app, db, root_path
-from models.exame import Exame, is_exame_data_valid
+from models.exame import Exame
 from controllers.utils import is_logged
-
-
-@app.route("/exame/get")
-def get_exame() -> Tuple[Response, int]:
-    exame_hash = request.args.get("hash")
-    if exame_hash is None or exame_hash == "":
-        return jsonify(None), BAD_REQUEST
-
-    exame = Exame.query.filter_by(hash=exame_hash).first()
-    return (jsonify(exame.json()), OK) if exame is not None else ("", NOT_FOUND)
-
-
-@app.route("/exame/get_image")
-def get_exame_image() -> Tuple[Response, int]:
-    exame_hash = request.args.get("hash")
-    e1 = Exame.query.filter_by(hash=exame_hash). \
-        with_entities(Exame.id, Exame.photo_filename).first()
-    if e1 is None:
-        return "", NOT_FOUND
-
-    if e1.photo_filename == "":
-        return "", NOT_FOUND
-    
-    photo_path = os.path.join(root_path, "images/"+e1.photo_filename)
-    return send_file(photo_path), OK
 
 
 @is_logged
 @app.route("/exame/add", methods=["POST"])
 def add_exame() -> Tuple[Response, int]:
     data = dict(request.form)
-    if not is_exame_data_valid:
+    if not Exame.is_data_valid:
         return "", BAD_REQUEST
 
     e = Exame(**data)
@@ -70,3 +45,27 @@ def associate_image():
     e.photo_filename = data["filename"]
     db.session.commit()
     return "", OK
+
+@app.route("/exame/get")
+def get_exame() -> Tuple[Response, int]:
+    exame_hash = request.args.get("hash")
+    if exame_hash is None or exame_hash == "":
+        return jsonify(None), BAD_REQUEST
+
+    exame = Exame.query.filter_by(hash=exame_hash).first()
+    return (jsonify(exame.json()), OK) if exame is not None else ("", NOT_FOUND)
+
+
+@app.route("/exame/get_image")
+def get_exame_image() -> Tuple[Response, int]:
+    exame_hash = request.args.get("hash")
+    e1 = Exame.query.filter_by(hash=exame_hash). \
+        with_entities(Exame.id, Exame.photo_filename).first()
+    if e1 is None:
+        return "", NOT_FOUND
+
+    if e1.photo_filename == "":
+        return "", NOT_FOUND
+
+    photo_path = os.path.join(root_path, "images/"+e1.photo_filename)
+    return send_file(photo_path), OK
