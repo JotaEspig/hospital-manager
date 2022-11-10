@@ -1,13 +1,17 @@
 from typing import Tuple
 from http.client import OK
 
+from flask import request
+
 from config.config import db, app
 import models
 
 
 @app.route("/")
 def inicio() -> Tuple[str, int]:
-    return 'backend operante', OK
+    return 'JOTA: <a href="http://'+request.host+'/frontend/login_adm.html">'+ \
+        request.host+'</a>: backend operante '+ \
+        '<a href="https://github.com/JotaEspig/hospital-manager">repositório</a>',OK
 
 
 @app.route("/create_tables")
