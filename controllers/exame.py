@@ -6,6 +6,7 @@ from flask import Response, request, jsonify, send_file
 
 from config.config import app, db, root_path
 from models.exame import Exame
+from models.utils import is_data_valid
 from controllers.utils import is_logged
 
 
@@ -13,7 +14,7 @@ from controllers.utils import is_logged
 @app.route("/exame/add", methods=["POST"])
 def add_exame() -> Tuple[Response, int]:
     data = dict(request.form)
-    if not Exame.is_data_valid:
+    if not is_data_valid(Exame, data):
         return "", BAD_REQUEST
 
     e = Exame(**data)
@@ -24,7 +25,7 @@ def add_exame() -> Tuple[Response, int]:
 
 @is_logged
 @app.route("/exame/save_image", methods=["PUT"])
-def save_image():
+def save_image() -> Tuple[Response, int]:
     try:
         file_val = request.files["foto"]
         filename = file_val.filename
@@ -36,7 +37,7 @@ def save_image():
 
 @is_logged
 @app.route("/exame/associate_image", methods=["PUT"])
-def associate_image():
+def associate_image() -> Tuple[Response, int]:
     data = dict(request.form)
     e = Exame.query.filter_by(hash=data["hash"]).first()
     if e is None:

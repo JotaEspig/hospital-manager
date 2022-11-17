@@ -1,6 +1,7 @@
+from typing import Tuple
 from http.client import OK, BAD_REQUEST, UNAUTHORIZED, NOT_FOUND, CONFLICT
 
-from flask import abort, request
+from flask import Response, abort, request
 from flask_login import current_user, login_user, logout_user
 
 from config.config import app, db
@@ -8,7 +9,7 @@ from models.admin import Admin
 
 
 @app.route("/login", methods=["POST"])
-def login():
+def login() -> Tuple[Response, int]:
     dados = dict(request.form)
     if "username" not in dados or "password" not in dados:
         abort(BAD_REQUEST)
@@ -28,7 +29,7 @@ def login():
     return "", OK
 
 @app.route("/signup", methods=["POST"])
-def signup():
+def signup() -> Tuple[Response, int]:
     dados = dict(request.form)
     a = Admin.query.filter_by(username=dados["username"]).first()
     if a is not None:
