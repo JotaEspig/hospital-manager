@@ -42,12 +42,12 @@
         <br>
 
         <!--Descer o modal-->
-        <button id="btAddMoney" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <button id="btAddMoney" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalExame" style="background-color: #3c434a; color: white; padding: 15px 32px; font-size: 110%;">
             Adicionar exame
         </button>
 
-        <!-- Modal-->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <!-- Modal de adicionar exame-->
+        <div class="modal fade" id="modalExame" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
 
@@ -59,31 +59,213 @@
                     <div class="modal-body">
                         <form action="https://localhost:5000" onsubmit="return false;" enctype="multipart/form-data" id="meuform">
                             <div class="form-floating mb-4">
-                                <input id="tituloCard" type="text" class="form-control form-control-lg" placeholder="Escreva aqui a descrição do exame"></input>
-                                <label class="form-label" for="tituloCard">Descrição:</label>
+                                <input id="nomeExameCard" type="text" class="form-control form-control-lg" placeholder="Escreva aqui o nome do exame"></input>
+                                <label class="form-label" for="nomeExameCard">Nome:</label>
                             </div>
                             <div class="form-floating mb-4">
-                                <input id="descricaoCard" type="text" class="form-control form-control-lg" placeholder="Negativo"></input>
-                                <label class="form-label" for="descricaoCard">Resultado:</label>
+                                <input id="descricaoExameCard" type="text" class="form-control form-control-lg" placeholder="Escreva aqui a descrição do exame"></input>
+                                <label class="form-label" for="descricaoExameCard">Descrição:</label>
                             </div>
                             <div class="form-floating mb-4">
-                                <input id="descricaoCard" type="text" class="form-control form-control-lg" placeholder="Fulano da Silva"></input>
-                                <label class="form-label" for="descricaoCard">Paciente:</label>
+                                <input id="resultadoExameCard" type="text" class="form-control form-control-lg" placeholder="Negativo"></input>
+                                <label class="form-label" for="resultadoExameCard">Resultado:</label>
                             </div>
                             <div class="form-floating mb-4">
-                                <input id="descricaoCard" type="text" class="form-control form-control-lg" placeholder="Negativo"></input>
-                                <label class="form-label" for="descricaoCard">Médico:</label>
+                                <input id="pacienteExameCard" type="text" class="form-control form-control-lg" placeholder="Fulano da Silva"></input>
+                                <label class="form-label" for="pacienteExameCard">Paciente:</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input id="medicoExameCard" type="text" class="form-control form-control-lg" placeholder="Negativo"></input>
+                                <label class="form-label" for="medicoExameCard">Médico:</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input id="doencaExameCard" type="text" class="form-control form-control-lg" placeholder="Escreva aqui a doença do exame"></input>
+                                <label class="form-label" for="doencaExameCard">Doença:</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input id="hospitalExameCard" type="text" class="form-control form-control-lg" placeholder="Escreva aqui o hospital do exame"></input>
+                                <label class="form-label" for="hospitalExameCard">Hospital:</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input id="imagemExameCard" type="file" class="form-control form-control-lg" placeholder="Insira aqui a imagem do exame"></input>
+                                <label class="form-label" for="imagemExameCard">Imagem do exame:</label>
                             </div>
                             <br>    
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                        <button id="btIncluirCard" type="button" class="btn btn-info" style="color: white;">Enviar</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="background-color: #A52A2A;">Fechar</button>
+                        <button id="btIncluirCard" type="button" class="btn btn-info" style="color: white; background-color: #3CB371;">Enviar</button>
                     </div>
                 </div>
             </div>
+        
         </div>
+
+        <br><br><br>
+
+        <!--Descer o modal-->
+        <button id="btAddMoney" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalHospital" style="background-color: #3c434a; color: white; padding: 15px 32px; font-size: 110%">
+            Adicionar hospital
+        </button>
+
+        <!-- Modal de adicionar hospital-->
+        <div class="modal fade" id="modalHospital" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalHospitalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalHospitalLabel">Adicione aqui um novo hospital</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form action="https://localhost:5000" onsubmit="return false;" enctype="multipart/form-data" id="meuform">
+                            <div class="form-floating mb-4">
+                                <input id="nomeHospitalCard" type="text" class="form-control form-control-lg" placeholder="Escreva aqui o nome do hospital"></input>
+                                <label class="form-label" for="nomeHospitalCard">Nome do hospital:</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input id="localizacaoHospitalCard" type="text" class="form-control form-control-lg" placeholder="Escreva aqui a localização do hospital"></input>
+                                <label class="form-label" for="localizacaoHospitalCard">Localização:</label>
+                            </div>
+                            <br>    
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="background-color: #A52A2A;">Fechar</button>
+                        <button id="btIncluirCard" type="button" class="btn btn-info" style="color: white; background-color: #3CB371;">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+
+<br><br><br>
+
+<!--Descer o modal-->
+        <button id="btAddMoney" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalMedico" style="background-color: #3c434a; color: white; padding: 15px 32px; font-size: 110%">
+            Adicionar Médico
+        </button>
+
+        <!-- Modal de adicionar médico-->
+        <div class="modal fade" id="modalMedico" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalMedicoLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalMedicoLabel">Adicione aqui um novo médico</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form action="https://localhost:5000" onsubmit="return false;" enctype="multipart/form-data" id="meuform">
+                            <div class="form-floating mb-4">
+                                <input id="idMedicoCard" type="text" class="form-control form-control-lg" placeholder="Escreva aqui o CRM do médico"></input>
+                                <label class="form-label" for="idMedicoCard">CRM do médico:</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input id="nomeMedicoCard" type="text" class="form-control form-control-lg" placeholder="Escreva aqui o nome do médico"></input>
+                                <label class="form-label" for="nomeMedicoCard">Nome do médico:</label>
+                            </div>
+                            <br>    
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="background-color: #A52A2A;">Fechar</button>
+                        <button id="btIncluirCard" type="button" class="btn btn-info" style="color: white; background-color: #3CB371;">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+
+        <br><br><br>
+
+<!--Descer o modal-->
+        <button id="btAddMoney" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalPaciente" style="background-color: #3c434a; color: white; padding: 15px 32px; font-size: 110%">
+            Adicionar Paciente
+        </button>
+
+        <!-- Modal de adicionar paciente-->
+        <div class="modal fade" id="modalPaciente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalPacienteLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalPacienteLabel">Adicione aqui um novo paciente</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form action="https://localhost:5000" onsubmit="return false;" enctype="multipart/form-data" id="meuform">
+                            <div class="form-floating mb-4">
+                                <input id="nomePacienteCard" type="text" class="form-control form-control-lg" placeholder="Escreva aqui o nome do paciente"></input>
+                                <label class="form-label" for="nomePacienteCard">Nome do paciente:</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input id="cpfPacienteCard" type="text" class="form-control form-control-lg" placeholder="Escreva aqui o CPF do paciente"></input>
+                                <label class="form-label" for="cpfPacienteCard">CPF do paciente:</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input id="emailPacienteCard" type="text" class="form-control form-control-lg" placeholder="Escreva aqui o email do paciente"></input>
+                                <label class="form-label" for="emailPacienteCard">E-mail do paciente:</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input id="telPacienteCard" type="text" class="form-control form-control-lg" placeholder="Escreva aqui o telefone do paciente"></input>
+                                <label class="form-label" for="telPacienteCard">Telefone do paciente:</label>
+                            </div>
+                            <br>    
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="background-color: #A52A2A;">Fechar</button>
+                        <button id="btIncluirCard" type="button" class="btn btn-info" style="color: white; background-color: #3CB371;">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+
+<br><br><br>
+
+        <!--Descer o modal-->
+        <button id="btAddMoney" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalDoenca" style="background-color: #3c434a; color: white; padding: 15px 32px; font-size: 110%">
+            Adicionar Doença
+        </button>
+
+        <!-- Modal de adicionar doença-->
+        <div class="modal fade" id="modalDoenca" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalDoencaLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalDoencaLabel">Adicione aqui uma nova doença</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form action="https://localhost:5000" onsubmit="return false;" enctype="multipart/form-data" id="meuform">
+                            <div class="form-floating mb-4">
+                                <input id="nomeDoencaCard" type="text" class="form-control form-control-lg" placeholder="Escreva aqui o nome da doença"></input>
+                                <label class="form-label" for="nomeDoencaCard">Nome da doença:</label>
+                            </div>
+                            <br>    
+                            <div class="form-floating mb-4">
+                                <input id="sintomasDoencaCard" type="text" class="form-control form-control-lg" placeholder="Escreva aqui os sintomas da doença"></input>
+                                <label class="form-label" for="sintomasDoencaCard">Sintomas da doença:</label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="background-color: #A52A2A;">Fechar</button>
+                        <button id="btIncluirCard" type="button" class="btn btn-info" style="color: white; background-color: #3CB371;">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+
         <!--<div>
             <button id="logout" type="button" class="btn btn-info">Logout</button>
         </div>-->
