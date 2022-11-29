@@ -41,3 +41,27 @@ h1 {
     margin-top: 10%;
 
 }
+
+.mainmenubtn {
+    background-color: #3c434a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding:20px;
+    margin-top:20px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-child {
+    display: none;
+    background-color: #3c434a;
+    min-width: 200px;
+}
+
+.dropdown:hover .dropdown-child {
+    display: block;
+}
