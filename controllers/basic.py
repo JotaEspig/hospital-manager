@@ -19,9 +19,14 @@ def create_tables() -> Tuple[str, int]:
     db.create_all()
 
     if models.admin.Admin.query.filter_by(username="admin").first() != None:
-        return "", OK
+        exit(0)
 
     a = models.admin.Admin(username="admin", pwhash="admin")
     db.session.add(a)
+    db.session.commit()
+    if models.doenca.Doenca.query.filter_by(nome="covid").first() != None:
+        exit(0)
+    d = models.doenca.Doenca(nome="covid", sintomas="dor")
+    db.session.add(d)
     db.session.commit()
     return "", OK

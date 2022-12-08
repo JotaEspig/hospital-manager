@@ -22,8 +22,8 @@
     integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" 
     crossorigin="anonymous"></script>
 
-
     <title>Consulta de exames</title>
+    <script src="script.js"></script>
 
 </head>
 
@@ -38,14 +38,14 @@
             <br>
 
             <div class="caixa">
-                <form onsubmit="return false">
+                <form id="loginform">
 
                     <label>
-                        <input type="text" name="email" placeholder="E-mail" class="form" id="email">
+                        <input type="text" name="username" placeholder="E-mail" class="form" id="username">
                     </label>
                     <br><br>
                     <label>
-                        <input type="text" name="senha" placeholder="Senha" class="form" id="senha">
+                        <input type="text" name="password" placeholder="Senha" class="form" id="password">
                     </label>
                     <br><br>
                     <button type="submit" name="submit" class="form" style="font-size: 9pt" id="bt_login">Entrar</button>
@@ -55,5 +55,8 @@
         </div>    
     </div>
     <script src="js/form_login.js"></script>
+    <script>
+        setSendRequest("#loginform", "/login", "alert(result.status);window.location.href = '/frontend/index_adm.html';")
+    </script>
 </body>
 </html>

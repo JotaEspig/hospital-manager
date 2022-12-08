@@ -21,7 +21,7 @@ class Exame(db.Model):
     doenca_id = db.Column(db.Integer, db.ForeignKey(Doenca.id))
     doenca = db.relationship("Doenca")
 
-    medico_id = db.Column(db.Integer, db.ForeignKey(Medico.id), nullable=False)
+    medico_id = db.Column(db.Integer, db.ForeignKey(Medico.crm), nullable=False)
     medico = db.relationship("Medico")
 
     paciente_id = db.Column(db.Integer, db.ForeignKey(Paciente.id), nullable=False)

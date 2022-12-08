@@ -11,4 +11,8 @@ if __name__ == "__main__":
     a = models.admin.Admin(username="admin", pwhash="admin")
     db.session.add(a)
     db.session.commit()
-    
+    if models.doenca.Doenca.query.filter_by(nome="covid").first() != None:
+        exit(0)
+    d = models.doenca.Doenca(nome="covid", sintomas="dor")
+    db.session.add(d)
+    db.session.commit()

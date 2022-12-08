@@ -16,11 +16,10 @@ def add_hospital() -> Tuple[Response, int]:
     if not is_data_valid(Hospital, data):
         return "", BAD_REQUEST
 
-    e = Hospital(**data)
-    db.session.add(e)
-    e.generate_hash()
+    h = Hospital(**data)
+    db.session.add(h)
     db.session.commit()
-    return e.hash, OK
+    return jsonify(h.json()), OK
 
 
 @is_logged
