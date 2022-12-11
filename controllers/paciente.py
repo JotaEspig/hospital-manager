@@ -3,12 +3,23 @@ from http.client import OK, BAD_REQUEST, NOT_FOUND
 
 from flask import Response, request, jsonify
 
-from config.config import app
+from config.config import app, db
 from models.paciente import Paciente
 from controllers.utils import is_logged
+from models.utils import is_data_valid
 
 
+@is_logged
+@app.route("/paciente/add", methods=["POST"])
+def add_paciente() -> Tuple[Response, int]:
+    data = dict(request.form)
+    if not is_data_valid(Paciente, data):
+        return "", BAD_REQUEST
 
+    h = Paciente(**data)
+    db.session.add(h)
+    db.session.commit()
+    return jsonify(h.json()), OK
 
 
 @is_logged
