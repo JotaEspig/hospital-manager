@@ -60,7 +60,7 @@
             (async () => {
                 let response = await fetch("/exame/get?hash="+hash);
                 if (response.status != 200) {
-                    alert("Erro acahndo exame!");
+                    alert("Erro achando exame!");
                     return;
                 }
                 let content = await response.json();
