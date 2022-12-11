@@ -33,12 +33,14 @@
         <h1>Exames de covid-19</h1>
     <hr>
         <div id="divBusca">
-            <input type="text" id="txtBusca" placeholder="Buscar exame..."/>
-            <button style="width: 5px; height: 5px; background-color: transparent; padding:5px; margin-top:2px;"><img src="https://assets.stickpng.com/images/59cfc4d2d3b1936210a5ddc7.png" style="width:20px;" id="btnBusca" alt="Buscar"/></button>
+            <form id="buscaform">
+                <input type="text" id="txtBusca" placeholder="Buscar exame..."/>
+                <button type="submit" style="width: 5px; height: 5px; background-color: transparent; padding:5px; margin-top:2px;">Buscar</button>
+            </form>
         </div>
 
-        <div id="listaAlbum" class="row row-cols-1 row-cols-md-3 g-4">
-            
+        <div id="exameFound" class="row row-cols-1 row-cols-md-3 g-4">
+            <span id="valores"></span>
         </div>
         
         <hr>
@@ -49,6 +51,23 @@
             <button id="logout" type="button" class="btn btn-info">Logout</button>
         </div>-->
     </div>
+
+    <script>
+        $("#buscaform").on("submit", function(ev) {
+            ev.preventDefault();
+
+            let hash = $("#txtBusca").val();
+            (async () => {
+                let response = await fetch("/exame/get?hash="+hash);
+                if (response.status != 200) {
+                    alert("Erro acahndo exame!");
+                    return;
+                }
+                let content = await response.json();
+                $("#valores").text(content);
+            })();
+        });
+    </script>
 
 </body>
 
