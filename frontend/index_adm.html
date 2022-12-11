@@ -9,7 +9,7 @@
         rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" 
         crossorigin="anonymous">
-    <link href="../css/estilo.css" rel="stylesheet">
+    <link href="estilo.css" rel="stylesheet">
     
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" 
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" 
@@ -216,19 +216,19 @@
                     <div class="modal-body">
                         
                             <div class="form-floating mb-4">
-                                <input id="nomePacienteCard" type="text" class="form-control form-control-lg" placeholder="Escreva aqui o nome do paciente"></input>
+                                <input id="nomePacienteCard" name="nome" type="text" class="form-control form-control-lg" placeholder="Escreva aqui o nome do paciente"></input>
                                 <label class="form-label" for="nomePacienteCard">Nome do paciente:</label>
                             </div>
                             <div class="form-floating mb-4">
-                                <input id="cpfPacienteCard" type="text" class="form-control form-control-lg" placeholder="Escreva aqui o CPF do paciente"></input>
+                                <input id="cpfPacienteCard" name="cpf" type="text" class="form-control form-control-lg" placeholder="Escreva aqui o CPF do paciente"></input>
                                 <label class="form-label" for="cpfPacienteCard">CPF do paciente:</label>
                             </div>
                             <div class="form-floating mb-4">
-                                <input id="emailPacienteCard" type="text" class="form-control form-control-lg" placeholder="Escreva aqui o email do paciente"></input>
+                                <input id="emailPacienteCard" name="_email" type="text" class="form-control form-control-lg" placeholder="Escreva aqui o email do paciente"></input>
                                 <label class="form-label" for="emailPacienteCard">E-mail do paciente:</label>
                             </div>
                             <div class="form-floating mb-4">
-                                <input id="telPacienteCard" type="text" class="form-control form-control-lg" placeholder="Escreva aqui o telefone do paciente"></input>
+                                <input id="telPacienteCard" name="telefone" type="text" class="form-control form-control-lg" placeholder="Escreva aqui o telefone do paciente"></input>
                                 <label class="form-label" for="telPacienteCard">Telefone do paciente:</label>
                             </div>
                             <br>    
@@ -237,7 +237,7 @@
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="background-color: #A52A2A;">Fechar</button>
                         <button type="submit" name="submit" class="btn btn-info" style="color: white; background-color: #3CB371;">Enviar</button>
                     </div>
-                </form>
+                    </form>
                 </div>
             </div>
         
