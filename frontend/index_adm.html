@@ -41,6 +41,9 @@
         
         <hr>
         <br>
+        <div>
+            <button id="logout" type="button" class="btn btn-info" style="background-color: #3c434a; color: white; float: right;">Logout</button>
+        </div>
         <!--Descer o modal exame-->
         <button id="btAddMoney" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalExame" style="background-color: #3c434a; color: white; padding: 15px 32px; font-size: 110%;">
                  Adicionar exame
@@ -276,10 +279,8 @@
             </div>
         
         </div>
+        <a href="index_geral">Clique aqui para ir para a página de pesquisa de exames</a>
 
-        <!--<div>
-            <button id="logout" type="button" class="btn btn-info">Logout</button>
-        </div>-->
     </div>
 
     <script>
@@ -287,6 +288,13 @@
         setSendRequest("#medicoform", "/medico/add", "result.json().then(r => {alert('Enviado! ID: '+r.crm);window.location.reload()});");
         setSendRequest("#doencaform", "/doenca/add", "result.json().then(r => {alert('Enviado! ID: '+r.id);window.location.reload()});");
         setSendRequest("#pacienteform", "/paciente/add", "result.json().then(r => {alert('Enviado! ID: '+r.id);window.location.reload()});");
+    </script>
+
+    <script type="text/javascript">
+        $(document).on("click", "#logout", function () { 
+        sessionStorage.removeItem('login-token');
+        window.location = 'login_adm.html';  
+                                                        });  
     </script>
 
 </body>
