@@ -14,7 +14,7 @@ function setSendRequest(id, url, redirect) {
             },
     
             (err) => {
-                alert("AAAAAAAAAAAAAAAA")
+                alert("Deu errado.")
             }
         )
     })
